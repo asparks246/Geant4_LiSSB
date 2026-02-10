@@ -85,9 +85,9 @@ G4VPhysicalVolume* DetectorConstruction::ConstructWorld()
     //stepLimit->SetMaxAllowedStep(maxStep);
     
     fField.Put(0);
-    G4double worldX = 0.2*m;
-    G4double worldY = 0.2*m;
-    G4double worldZ = 0.8*m;
+    G4double worldX = 10*cm;
+    G4double worldY = 10*cm;
+    G4double worldZ = 80*cm;
     
     G4double WorldExtent = worldX*worldY*worldZ; 
     G4GeometryManager::GetInstance()->SetWorldMaximumExtent(WorldExtent);

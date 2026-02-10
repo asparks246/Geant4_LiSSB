@@ -47,7 +47,8 @@ void PrimaryGeneratorAction::SetUp( void )
 
 void PrimaryGeneratorAction::SetUpBetaAssymetry()
 {
-    double maxEnergy= 13.1*MeV;  //26Na: 9354(4)keV
+    //double maxEnergy= 13.1*MeV;  //26Na: 9354(4)keV
+    double maxEnergy= (13.1*1000)*keV;  //26Na: 9354(4)keV
     int atomicNumber=3; //Z number (19-K, 11-Na)
     double polarization = 1; //polarisation
     double assymetryFactor= -1/3; //assymetry factor
@@ -94,7 +95,7 @@ void PrimaryGeneratorAction::GeneratePrimaries( G4Event* anEvent )
 	particleGun->SetParticleDefinition(betaPD);
 	particleGun->SetParticleEnergy( randEnergy/1000. );	
 	//particleGun->SetParticlePosition(GeneratePosition());
-	//particleGun->SetParticleEnergy(randEnergy * keV);   // or MeV
+	//particleGun->SetParticleEnergy(randEnergy * MeV);   // or MeV
 	particleGun->SetParticlePosition(GeneratePosition());
 	particleGun->SetParticleMomentumDirection( direction );		
 	particleGun->GeneratePrimaryVertex(anEvent);
@@ -103,6 +104,13 @@ void PrimaryGeneratorAction::GeneratePrimaries( G4Event* anEvent )
   	{
     		std::cout << "Finished Running Event # " << i << std::endl;
   	}
+
+  G4cout
+  << "Injected beta KE = "
+  << randEnergy
+  << " MeV"
+  << G4endl;
+ 
 }
 
 
