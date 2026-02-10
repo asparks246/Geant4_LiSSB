@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/VITO.dir/VITO.cc.o"
+  "CMakeFiles/VITO.dir/VITO.cc.o.d"
+  "CMakeFiles/VITO.dir/src/Anisotropy.cc.o"
+  "CMakeFiles/VITO.dir/src/Anisotropy.cc.o.d"
+  "CMakeFiles/VITO.dir/src/Beta.cc.o"
+  "CMakeFiles/VITO.dir/src/Beta.cc.o.d"
+  "CMakeFiles/VITO.dir/src/DetectorConstruction.cc.o"
+  "CMakeFiles/VITO.dir/src/DetectorConstruction.cc.o.d"
+  "CMakeFiles/VITO.dir/src/EMPhysics.cc.o"
+  "CMakeFiles/VITO.dir/src/EMPhysics.cc.o.d"
+  "CMakeFiles/VITO.dir/src/EventAction.cc.o"
+  "CMakeFiles/VITO.dir/src/EventAction.cc.o.d"
+  "CMakeFiles/VITO.dir/src/FermiDistribution.cc.o"
+  "CMakeFiles/VITO.dir/src/FermiDistribution.cc.o.d"
+  "CMakeFiles/VITO.dir/src/GeneralPhysics.cc.o"
+  "CMakeFiles/VITO.dir/src/GeneralPhysics.cc.o.d"
+  "CMakeFiles/VITO.dir/src/OutputRoot.cc.o"
+  "CMakeFiles/VITO.dir/src/OutputRoot.cc.o.d"
+  "CMakeFiles/VITO.dir/src/OutputRoot_step.cc.o"
+  "CMakeFiles/VITO.dir/src/OutputRoot_step.cc.o.d"
+  "CMakeFiles/VITO.dir/src/PhysicsList.cc.o"
+  "CMakeFiles/VITO.dir/src/PhysicsList.cc.o.d"
+  "CMakeFiles/VITO.dir/src/PrimaryGeneratorAction.cc.o"
+  "CMakeFiles/VITO.dir/src/PrimaryGeneratorAction.cc.o.d"
+  "CMakeFiles/VITO.dir/src/RunAction.cc.o"
+  "CMakeFiles/VITO.dir/src/RunAction.cc.o.d"
+  "CMakeFiles/VITO.dir/src/SampleHolder1.cc.o"
+  "CMakeFiles/VITO.dir/src/SampleHolder1.cc.o.d"
+  "CMakeFiles/VITO.dir/src/SampleHolder2.cc.o"
+  "CMakeFiles/VITO.dir/src/SampleHolder2.cc.o.d"
+  "CMakeFiles/VITO.dir/src/SteppingAction.cc.o"
+  "CMakeFiles/VITO.dir/src/SteppingAction.cc.o.d"
+  "CMakeFiles/VITO.dir/src/VITOMagneticField.cc.o"
+  "CMakeFiles/VITO.dir/src/VITOMagneticField.cc.o.d"
+  "VITO"
+  "VITO.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/VITO.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -1,0 +1,86 @@
+solid Rear-6h (Meshed)
+  facet normal 0.000000e+00 9.584961e-01 -2.851058e-01
+    outer loop
+      vertex   -5.850000e+01 8.134755e+01 -5.436914e+02
+      vertex   5.850000e+01 8.134755e+01 -5.436914e+02
+      vertex   -8.500000e+00 1.862428e+01 -7.545605e+02
+    endloop
+  endfacet
+  facet normal 0.000000e+00 9.584961e-01 -2.851058e-01
+    outer loop
+      vertex   -8.500000e+00 1.862428e+01 -7.545605e+02
+      vertex   5.850000e+01 8.134755e+01 -5.436914e+02
+      vertex   8.500000e+00 1.862428e+01 -7.545605e+02
+    endloop
+  endfacet
+  facet normal 9.751329e-01 -6.318554e-02 -2.124229e-01
+    outer loop
+      vertex   5.850000e+01 7.655507e+01 -5.422658e+02
+      vertex   8.500000e+00 1.383180e+01 -7.531350e+02
+      vertex   5.850000e+01 8.134755e+01 -5.436914e+02
+    endloop
+  endfacet
+  facet normal 9.751329e-01 -6.318563e-02 -2.124229e-01
+    outer loop
+      vertex   5.850000e+01 8.134755e+01 -5.436914e+02
+      vertex   8.500000e+00 1.383180e+01 -7.531350e+02
+      vertex   8.500000e+00 1.862428e+01 -7.545605e+02
+    endloop
+  endfacet
+  facet normal -0.000000e+00 -2.851066e-01 -9.584958e-01
+    outer loop
+      vertex   8.500000e+00 1.383180e+01 -7.531350e+02
+      vertex   -8.500000e+00 1.383180e+01 -7.531350e+02
+      vertex   8.500000e+00 1.862428e+01 -7.545605e+02
+    endloop
+  endfacet
+  facet normal -0.000000e+00 -2.851066e-01 -9.584958e-01
+    outer loop
+      vertex   8.500000e+00 1.862428e+01 -7.545605e+02
+      vertex   -8.500000e+00 1.383180e+01 -7.531350e+02
+      vertex   -8.500000e+00 1.862428e+01 -7.545605e+02
+    endloop
+  endfacet
+  facet normal -9.751329e-01 -6.318563e-02 -2.124229e-01
+    outer loop
+      vertex   -8.500000e+00 1.383180e+01 -7.531350e+02
+      vertex   -5.850000e+01 7.655507e+01 -5.422658e+02
+      vertex   -8.500000e+00 1.862428e+01 -7.545605e+02
+    endloop
+  endfacet
+  facet normal -9.751329e-01 -6.318554e-02 -2.124229e-01
+    outer loop
+      vertex   -8.500000e+00 1.862428e+01 -7.545605e+02
+      vertex   -5.850000e+01 7.655507e+01 -5.422658e+02
+      vertex   -5.850000e+01 8.134755e+01 -5.436914e+02
+    endloop
+  endfacet
+  facet normal -0.000000e+00 2.851061e-01 9.584960e-01
+    outer loop
+      vertex   -5.850000e+01 7.655507e+01 -5.422658e+02
+      vertex   5.850000e+01 7.655507e+01 -5.422658e+02
+      vertex   -5.850000e+01 8.134755e+01 -5.436914e+02
+    endloop
+  endfacet
+  facet normal -0.000000e+00 2.851061e-01 9.584960e-01
+    outer loop
+      vertex   -5.850000e+01 8.134755e+01 -5.436914e+02
+      vertex   5.850000e+01 7.655507e+01 -5.422658e+02
+      vertex   5.850000e+01 8.134755e+01 -5.436914e+02
+    endloop
+  endfacet
+  facet normal 0.000000e+00 -9.584961e-01 2.851058e-01
+    outer loop
+      vertex   5.850000e+01 7.655507e+01 -5.422658e+02
+      vertex   -5.850000e+01 7.655507e+01 -5.422658e+02
+      vertex   8.500000e+00 1.383180e+01 -7.531350e+02
+    endloop
+  endfacet
+  facet normal 0.000000e+00 -9.584961e-01 2.851058e-01
+    outer loop
+      vertex   8.500000e+00 1.383180e+01 -7.531350e+02
+      vertex   -5.850000e+01 7.655507e+01 -5.422658e+02
+      vertex   -8.500000e+00 1.383180e+01 -7.531350e+02
+    endloop
+  endfacet
+endsolid Mesh
