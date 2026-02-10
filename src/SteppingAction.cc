@@ -42,9 +42,6 @@ SteppingAction::~SteppingAction()
 void SteppingAction::UserSteppingAction(const G4Step* theStep) 
 {
 	PrintStep(theStep);
-	//G4Track* theTrack = theStep->GetTrack();
-        //G4int stepId = theTrack->GetCurrentStepNumber();
-        //std::cout << stepId << std::endl;
 }
 
 
@@ -54,9 +51,6 @@ void SteppingAction::PrintStep(const G4Step* theStep)
     //STEP ID
     G4Track* theTrack = theStep->GetTrack();
     G4int stepId = theTrack->GetCurrentStepNumber();
-    //G4double KEprestep = theTrack->GetStep()->GetPreStepPoint()->GetKineticEnergy();
-    //G4double KEpoststep = theTrack->GetStep()->GetPostStepPoint()->GetKineticEnergy();
-    //G4double KEstep = KEprestep-KEpoststep;
     
     G4double EdepStep = theStep->GetTotalEnergyDeposit();
     G4double LengthStep = theStep->GetStepLength();
@@ -122,12 +116,7 @@ void SteppingAction::PrintStep(const G4Step* theStep)
     G4double kineticEnergy = theTrack->GetKineticEnergy();
     //EVENT ID
     
-    
-    
-    if(stepId==1 and trackID==1 and parentID==0)
-    {
-	eventId++;
-    }
+
     //VOLUME ID: samlpe holder - 0, frontDet - 1 gramophoneDet - 2,4,6,8,10,12, aluFrame - 99, world - 100
     G4String volumeName = theTrack->GetVolume()->GetName();
     G4int volId;
@@ -137,22 +126,7 @@ void SteppingAction::PrintStep(const G4Step* theStep)
     else if(volumeName == "Backing plate") 	{volId=4;}
     else if(volumeName == "world") 		{volId=5;}
     else    					{volId=0;}
-    /*
-    if(volumeName == "holderDet") volId=50;
-    else if(volumeName == "scintFrontPhys") volId=20;
-    else if(volumeName == "framePhys") volId=99;
-    else if(volumeName == "world") volId=100;
-    else if(volumeName == "scintRear2hPhys") volId = 2;
-    else if(volumeName == "scintRear4hPhys") volId = 4;
-    else if(volumeName == "scintRear6hPhys") volId = 6;
-    else if(volumeName == "scintRear8hPhys") volId = 8;
-    else if(volumeName == "scintRear10hPhys") volId = 10;
-    else if(volumeName == "scintRear12hPhys") volId = 12;
-    else
-    {
-       volId=0;
-       //outputfile_errors << "volume name to add:" << "\t" << volumeName;
-    }*/
+
 
     //PROCESS NAME
     G4String processName =theStep->GetPostStepPoint()->GetProcessDefinedStep()->GetProcessName();
@@ -179,18 +153,39 @@ void SteppingAction::PrintStep(const G4Step* theStep)
     else AtBoundary = 0;
     
     ID++;
+
+        // Increment the number of launched particles for primary tracks
+    if (stepId == 1 && trackID == 1 && parentID == 0)
+    {
+        eventId++;
+        nLaunchedParticles++;
+        G4cout << "Primary particle launched. Total so far: " << nLaunchedParticles << G4endl;
+    }
+
     
     std::cout.precision(2);
     
-    //std::cout << "Step: " << stepId << ", Track: " << trackID << ", PosX: " << prePos.x() << ", Y: " << prePos.y() << ", Z: " << prePos.z() << ", Proc: " << processName<< ", Vol: " << volumeName << ", PosDelX: " << abs(prePos.x() - postPos.x())<< ", Y: " << abs(prePos.y() - postPos.y()) <<", Z: " << abs(prePos.z() - postPos.z()) << ", EDep: " <<EdepStep<<", KE: "<<kineticEnergy<<", LenStep: "<<LengthStep<<std::endl;
+    std::cout << "Beta No.:" << nLaunchedParticles << "|| Step: " << stepId << " || Track: " << trackID << " || PosX: " << prePos.x() << " || Y: " << prePos.y() << " || Z: " << prePos.z() << " || Proc: " << processName<< " || Vol: " << volumeName << "|| PosDelX: " << abs(prePos.x() - postPos.x())<< "|| Y: " << abs(prePos.y() - postPos.y()) <<" || Z: " << abs(prePos.z() - postPos.z()) << " || EDep: " <<EdepStep<<" || KE: "<<kineticEnergy<<" || LenStep: "<<LengthStep<<std::endl;
     
     //if (abs(prePos.x() - postPos.x())<0.1 && abs(prePos.y() - postPos.y())<0.1 && abs(prePos.z() - postPos.z())<0.1 && volId ==5 && stepId>5) theTrack->SetTrackStatus(fStopAndKill);
     //if (processName == "eIoni") theTrack->SetTrackStatus(fStopAndKill);
     //if (KEstep == 0 && stepId>1000) theTrack->SetTrackStatus(fStopAndKill);
-    if ((abs(prePos.z() - postPos.z()) < 0.5) && (abs(prePos.x() - postPos.x()) < 0.5)&& (abs(prePos.y() - postPos.y()) < 0.5)&& volId ==5) theTrack->SetTrackStatus(fStopAndKill);
+    //if ((abs(prePos.z() - postPos.z()) < 0.5) && (abs(prePos.x() - postPos.x()) < 0.5)&& (abs(prePos.y() - postPos.y()) < 0.5)&& volId ==5) theTrack->SetTrackStatus(fStopAndKill);
     //if ((abs(prePos.z() - postPos.z()) < 0.5) && volId == 5) theTrack->SetTrackStatus(fKillTrackAndSecondaries);
    
-  
+     
+    // ==== NEW: Kill particles with tiny Z displacement in the world ====
+    const double stuckThreshold = 1e-3*CLHEP::mm;  // adjust if needed
+
+    if (std::abs(z_delta) < stuckThreshold && volId == 5) // 5 = world
+    {
+        theTrack->SetTrackStatus(fKillTrackAndSecondaries);
+        G4cout << "Killed stuck particle at step " 
+            << stepId 
+            << ", trackID " << trackID 
+            << ", ΔZ = " << z_delta/CLHEP::mm << " mm" << G4endl;
+    }
+
     
     //outputFile_step->AddHit_step(ID, eventId, stepId, volId, particleID, processID, deltaEn, x_mom, y_mom, z_mom, x_prePos, y_prePos, z_prePos, x_postPos, y_postPos, z_postPos, deltaTime, globalTime_pre, globalTime_post, properTime_pre, properTime_post, trackID, parentID, kineticEnergy);
 }

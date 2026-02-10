@@ -458,8 +458,8 @@ void DetectorConstruction::ConstructSample()
     Li7PS6->AddElement(S, natoms=5);
     Li7PS6->AddElement(Cl, natoms=1);
 
-    fSampleSizeX =  10.9*mm;
-    fSampleSizeY = 10.9*mm;
+    fSampleSizeX =  13*mm;
+    fSampleSizeY = 13*mm;
     fSampleSizeZ = 1*mm;
   
     fSampleMaterial = Li7PS6;

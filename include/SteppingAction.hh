@@ -18,19 +18,19 @@
 class SteppingAction : public G4UserSteppingAction
 {
   public:
-    
-
+  
     SteppingAction();
     virtual ~SteppingAction();
     virtual void UserSteppingAction(const G4Step*); 
+
   private:
+
     void PrintStep(const G4Step*);
-	OutputRoot_step* outputFile_step;
-	G4int eventId=0;
-	//clock_t time;
-	//std::ofstream outputfile;
-	std::ofstream outputfile_errors;
-	int ID=0;
+    OutputRoot_step* outputFile_step;
+    G4int eventId=0;
+    std::ofstream outputfile_errors;
+    int ID=0;
+    int nLaunchedParticles = 0;  // total primary particles launched
 };
 
 #endif
