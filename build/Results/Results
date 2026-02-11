@@ -6,6 +6,21 @@
     -------------------------------------------------------------
     
     SteppingAction.cc:
+    
+        const double stuckThreshold = 1e-3*CLHEP::mm;  // adjust if needed
+
+    if (std::abs(z_delta) < stuckThreshold && volId == 5) // 5 = world
+    {
+        theTrack->SetTrackStatus(fKillTrackAndSecondaries);
+        G4cout << "Killed stuck particle at step " 
+            << stepId 
+            << ", trackID " << trackID 
+            << ", ΔZ = " << z_delta/CLHEP::mm << " mm" << G4endl;
+    }
+    
+    -------------------------------------------------------------
+    
+    SteppingAction.cc:
 	
     if ((abs(prePos.z() - postPos.z()) < 0.5) && (abs(prePos.x() - postPos.x()) < 0.5)&& (abs(prePos.y() - postPos.y()) < 0.5)&& volId ==5) 		theTrack->SetTrackStatus(fStopAndKill);
     
@@ -34,6 +49,8 @@
 10. VITO mag field, nothing between detectors, 1000 betas
 11. VITO mag field, nothing between detectors, 2000 betas
 12. VITO mag field, nothing between detectors, 5000 betas
+
+13. VITO mag field, nothing between detectors, 5000 betas
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
