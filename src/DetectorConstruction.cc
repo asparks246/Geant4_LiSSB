@@ -521,7 +521,7 @@ void DetectorConstruction::ConstructSDandField()
 
 
 //REAL VITO MAGNETIC FIELD
-#if MAG
+/*#if MAG
   if (fField.Get() == 0)
     {
       G4MagneticField* magField= new VITOMagneticField("./field1Axial.txt", "./field1Radial.txt", "./field2Axial.txt", "./field2Radial.txt");
@@ -532,9 +532,9 @@ void DetectorConstruction::ConstructSDandField()
       pFieldMgr->CreateChordFinder(fField.Get());
     }
 
-#endif
+#endif*/
 
-/*
+
 #if MAG
   if (fField.Get() == 0)
     {
@@ -547,7 +547,7 @@ void DetectorConstruction::ConstructSDandField()
     }
 
 #endif
-*/
+
 }
 //-------------------------------------------------------------
 

@@ -5,7 +5,7 @@
 // Produces “dump.txt” and “dump.xml” files.
 //
 
-void dump(const char *outputname = "ScintDetOutput_10000_sample_heater2mmsample.txt", const char *fname = "ScintDetOutput_10000_sample_heater2mmsample.root", const char *nname = "SiliInfo")
+void dump(const char *outputname = "15.txt", const char *fname = "15.root", const char *nname = "SiliInfo")
 {
 if (!fname || !(*fname) || !nname || !(*nname)) return; // just a precaution
 

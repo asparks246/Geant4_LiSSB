@@ -7,7 +7,7 @@ Beta::Beta(double maxEnergyVal, int atomicNumberVal, double polarizationVal, dou
     :maxBetaEnergy(maxEnergyVal), atomicNumber(atomicNumberVal), polarization(polarizationVal), assymetryFactor(assymetryFactorVal)
 {
 
-    betaEnergyDistribution = new FermiDistribution(atomicNumber, maxBetaEnergy*1000, -1);
+    betaEnergyDistribution = new FermiDistribution(atomicNumber, maxBetaEnergy, -1);
 	MakeBetaSpectrum();
 
 }
@@ -89,6 +89,7 @@ void  Beta::GenerateAsymDirection(G4ThreeVector* direction, TF1* asymDistr)
    //*direction = G4ThreeVector (randomXaim, randomYaim, randomZaim);
    *direction = G4ThreeVector (randomYaim, randomZaim, -randomXaim);    
 }
+
 
 void Beta::GetRandomBeta(float* randEnergy, G4ThreeVector* randDirection)
 {
