@@ -3,8 +3,6 @@
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
     
-    -------------------------------------------------------------
-    
     SteppingAction.cc:
     
         const double stuckThreshold = 1e-3*CLHEP::mm;  // adjust if needed
@@ -18,22 +16,16 @@
             << ", ΔZ = " << z_delta/CLHEP::mm << " mm" << G4endl;
     }
     
-    -------------------------------------------------------------
-    
-    SteppingAction.cc:
-	
-    if ((abs(prePos.z() - postPos.z()) < 0.5) && (abs(prePos.x() - postPos.x()) < 0.5)&& (abs(prePos.y() - postPos.y()) < 0.5)&& volId ==5) 		theTrack->SetTrackStatus(fStopAndKill);
-    
-    -------------------------------------------------------------
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
     
     PrimaryGeneratorAction.cc:
     
-    G4double maxEnergy = 13.1 * MeV;
-    G4int atomicNumber = 3;         // Na
-    G4double polarization = 1;
-    G4double asymmetryFactor = -0.3333;
+    double maxEnergy = 13100.0; // keV
+    int atomicNumber = 3;       // Lithium-3
+    double polarization = -1.0; 
+    double assymetryFactor = 0.333; // / 3.0;
     
-    -------------------------------------------------------------
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 1. VITO mag field, nothing between detectors, 500 betas
 2. VITO mag field, nothing between detectors, 1000 betas
@@ -45,24 +37,13 @@
 7. VITO mag field, nothing between detectors, 2000 betas
 8. VITO mag field, nothing between detectors, 5000 betas
 
-9. VITO mag field, nothing between detectors, 500 betas
-10. VITO mag field, nothing between detectors, 1000 betas
-11. VITO mag field, nothing between detectors, 2000 betas
-12. VITO mag field, nothing between detectors, 5000 betas
+9. VITO mag field, nothing between detectors, 5000 betas
+10. VITO mag field, nothing between detectors, 1000 betas 
 
-13. VITO mag field, nothing between detectors, 5000 betas
+11. VITO mag field, nothing between detectors, 2000 betas
+12. VITO mag field, nothing between detectors, 500 betas
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-
-
-
-
-
-
-
-
-
-
 
 
 
